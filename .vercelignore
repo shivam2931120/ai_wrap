@@ -1,0 +1,36 @@
+# Virtual environments
+.venv
+venv
+
+# Git
+.git
+
+# Python cache
+__pycache__
+*.pyc
+*.pyo
+
+# Environment files
+.env
+.env.local
+
+# Tests
+tests/
+.pytest_cache/
+
+# Build artifacts
+*.egg-info
+gemini_wrapper.egg-info/
+
+# Dev files
+example.py
+example_sync.py
+launch_ui.sh
+test_all.sh
+
+# Documentation (not needed in production)
+COMPLETE.md
+DONE.md
+QUICKSTART.md
+UI_GUIDE.md
+USAGE.md

@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=63", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gemini-wrapper"
+version = "0.1.0"
+description = "Production-ready wrapper for Gemini-style LLM HTTP APIs"
+authors = [{name = "AI Assistant", email = "support@example.com"}]
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = [
+    "httpx>=0.26.0",
+    "anyio>=3.7.0",
+    "python-dotenv>=1.0.0",
+    "gradio>=6.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "respx>=0.20.2",
+]
+
+[project.scripts]
+gw = "gemini_wrapper.cli:main"
