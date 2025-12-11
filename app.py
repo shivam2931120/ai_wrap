@@ -410,7 +410,6 @@ def create_ui():
         gr.HTML("<div class='app-wrap'><div class='app'>", elem_id="app_open")
 
         # small top area (logo + title) - optional minimalist
-        gr.HTML("<div class='topbar'><div class='logo'><span>E</span></div><div class='app-title'>EchoAI</div></div>")
 
         # main card (chat + input)
         with gr.Row(elem_classes="card", variant="compact"):
