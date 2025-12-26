@@ -1,0 +1,35 @@
+.segmented-control {
+  display: flex;
+  gap: 8px;
+  background: transparent;
+  align-items: center;
+}
+
+.seg-btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #2f3742;
+  background: #111827;
+  color: #9CA3AF;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+
+.seg-btn:hover {
+  transform: translateY(-1px);
+  color: #E5E7EB;
+  border-color: #374151;
+}
+
+.seg-btn:focus {
+  outline: 2px solid #10B981;
+  outline-offset: 2px;
+}
+
+.seg-selected {
+  background: linear-gradient(180deg, #10B981, #059669);
+  color: #06121a;
+  border-color: transparent;
+  box-shadow: 0 6px 18px rgba(16,185,129,0.12);
+}

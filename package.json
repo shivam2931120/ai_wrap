@@ -1,0 +1,30 @@
+{
+  "name": "echoai",
+  "version": "1.0.0",
+  "description": "Modern AI chat interface with React frontend and Flask backend",
+  "main": "backend/api.py",
+  "scripts": {
+    "install-all": "pip install -r requirements.txt && cd frontend && npm install",
+    "dev": "./start.sh",
+    "build": "cd frontend && npm run build",
+    "test": "cd frontend && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/echoai.git"
+  },
+  "keywords": [
+    "ai",
+    "chat",
+    "react",
+    "flask",
+    "openrouter",
+    "gemini"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0",
+    "python": ">=3.8.0"
+  }
+}

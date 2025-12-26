@@ -2,14 +2,36 @@
   "version": 2,
   "builds": [
     {
-      "src": "app.py",
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    },
+    {
+      "src": "api/index.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
+      "src": "/api/(.*)",
+      "dest": "api/index.py"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "frontend/build/static/$1"
+    },
+    {
+      "src": "/(.*\\.(js|css|json|ico|png|jpg|jpeg|svg|woff|woff2|ttf|eot))",
+      "dest": "frontend/build/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "app.py"
+      "dest": "frontend/build/index.html"
     }
-  ]
+  ],
+  "env": {
+    "OPENROUTER_API_ENDPOINT": "@openrouter_api_endpoint"
+  }
 }

@@ -22,3 +22,25 @@ build/
 
 # OS
 .DS_Store
+
+# Frontend
+frontend/node_modules/
+frontend/build/
+frontend/.env.local
+
+# Backup and temporary files
+*.backup
+*.tmp
+*.log
+
+# Old deployment configs (use vercel.json)
+Procfile
+fly.toml
+Dockerfile
+
+# Old app files
+app.py
+test_providers.py
+setup.sh
+start.sh
+stop.sh

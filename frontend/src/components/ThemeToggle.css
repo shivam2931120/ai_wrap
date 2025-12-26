@@ -1,0 +1,12 @@
+.theme-toggle {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #22303a;
+  background: #0B1220;
+  color: #D1D5DB;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.12s ease;
+}
+
+.theme-toggle:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(2,6,23,0.5); }

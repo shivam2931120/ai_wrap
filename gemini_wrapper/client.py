@@ -138,29 +138,39 @@ class GeminiAsyncClient:
     def _build_url(self, path: str) -> str:
         base = str(self._settings.endpoint).rstrip("/")
         path = path if path.startswith("/") else f"/{path}"
-        url = f"{base}{path}"
-        # Add API key as query parameter for Google Gemini if present
-        if getattr(self._settings, "api_key", None):
-            return f"{url}?key={self._settings.api_key}"
-        return url
+        return f"{base}{path}"
 
     def _headers(self, extra: Dict[str, str] | None = None) -> Dict[str, str]:
-        return build_headers(getattr(self._settings, "api_key", None), getattr(self._settings, "project", None), extra=extra)
+        headers: Dict[str, str] = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {self._settings.api_key}",
+            "HTTP-Referer": "https://github.com/echoai",
+            "X-Title": "EchoAI",
+        }
+        
+        if extra:
+            headers.update(extra)
+        return headers
 
     async def complete(self, prompt: str, **opts: Any) -> Dict[str, Any]:
-        # Format for Google Gemini API
+        # OpenRouter/OpenAI format
         payload: Dict[str, Any] = {
-            "contents": [{"parts": [{"text": prompt}]}]
+            "messages": [{"role": "user", "content": prompt}],
+            "model": opts.pop("model", "gpt-3.5-turbo"),
         }
         payload.update(opts)
+        
         response = await self._request("POST", getattr(self._settings.paths, "complete"), json=payload)
         return response
 
     async def chat(self, messages: list[dict[str, Any]], **opts: Any) -> Dict[str, Any]:
-        # Convert to Gemini format
-        contents = [{"parts": [{"text": msg.get("content", "")}], "role": msg.get("role", "user")} for msg in messages]
-        payload: Dict[str, Any] = {"contents": contents}
+        # OpenRouter/OpenAI format - use messages directly
+        payload: Dict[str, Any] = {
+            "messages": messages,
+            "model": opts.pop("model", "gpt-3.5-turbo"),
+        }
         payload.update(opts)
+        
         response = await self._request("POST", getattr(self._settings.paths, "chat"), json=payload)
         return response
 

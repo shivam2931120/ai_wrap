@@ -1,0 +1,41 @@
+.model-selector {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.selector-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #9CA3AF;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.selector-dropdown {
+  padding: 10px 14px;
+  border: 1px solid #374151;
+  border-radius: 6px;
+  font-size: 13px;
+  background: #1F2937;
+  color: #E5E7EB;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.selector-dropdown:focus {
+  outline: 2px solid #10B981;
+  outline-offset: 2px;
+  border-color: #10B981;
+  background: #1F2937;
+}
+
+.selector-dropdown:hover {
+  border-color: #10B981;
+}
+
+.selector-dropdown option {
+  background: #1F2937;
+  color: #E5E7EB;
+}

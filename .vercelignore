@@ -27,6 +27,13 @@ example.py
 example_sync.py
 launch_ui.sh
 test_all.sh
+setup.sh
+start.sh
+stop.sh
+
+# Original app (using new backend)
+app.py
+test_providers.py
 
 # Documentation (not needed in production)
 COMPLETE.md
@@ -34,3 +41,18 @@ DONE.md
 QUICKSTART.md
 UI_GUIDE.md
 USAGE.md
+CHANGES.md
+COMMIT_MESSAGE.txt
+DEPLOYMENT.md
+DEPLOY_QUICK.md
+FULL_DOCUMENTATION.md
+PROJECT_README.md
+QUICKSTART.md
+REACT_README.md
+README_NEW.md
+SETUP_GUIDE.md
+
+# Other deployment configs
+Dockerfile
+fly.toml
+Procfile
